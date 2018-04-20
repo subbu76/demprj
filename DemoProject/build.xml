@@ -1,0 +1,22 @@
+<project name="DemoProject" basedir="." default="main">
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes"/>
+    </target>
+
+    <target name="package">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/HelloWorld.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.test.HelloWorld"/>
+            </manifest>
+        </jar>
+    </target>
+	
+	<target name="main" depends="clean,compile,package" />
+	
+</project>
